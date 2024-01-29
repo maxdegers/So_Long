@@ -6,7 +6,14 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:41 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/27 14:35:42 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:02:35 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
+
+int main(void)
+{
+    ft_printf("lol les baleine");
+    return 0;
+}

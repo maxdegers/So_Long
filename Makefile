@@ -6,17 +6,20 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 14:32:21 by mbrousse          #+#    #+#              #
-#    Updated: 2024/01/27 14:35:59 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/01/29 14:04:01 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES	=	
+SOURCES	=	so_long.c\
+			so_long_utils.c\
+			error.c\
+			checker.c
 
 OBJECTS	= 	${SOURCES:.c=.o}
 
 HEADER			=	so_long.h
 
-NAME			=	client
+NAME			=	so_long
 
 CC 				=	cc
 
@@ -25,19 +28,22 @@ FLAGS 			=	-Wall -Wextra -Werror
 all: ${NAME}
 
 %.o:%.c  ${HEADER} libft/libft.h
-	${CC} ${FLAGS} -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	@${CC} ${FLAGS} -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 ${NAME}: ${OBJECTS} Makefile
-	make -C ./libft
-	${CC} ${FLAGS} ${OBJECTS} -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) -L./libft -lft
+	@make -C ./libft
+	@make -C mlx_linux
+	@$(CC) $(OBJECTS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -g3 -o $(NAME) -L./libft -lft
 
 clean:
-	make clean -C ./libft
-	rm -f ${OBJECTS}
+	@make clean -C ./libft
+	@make clean -C mlx_linux
+	@rm -f ${OBJECTS}
 
 fclean: clean
-	make fclean -C ./libft
-	rm -f ${NAME}
+	@make fclean -C ./libft
+	@make fclean -C mlx_linux
+	@rm -f ${NAME}
 
 re: fclean all
 
