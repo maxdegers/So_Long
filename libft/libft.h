@@ -6,12 +6,17 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 10:23:33 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/18 17:58:19 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:31:10 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# ifndef BUFFER_SIZE 
+#  define BUFFER_SIZE 1024
+# endif
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
@@ -80,4 +85,12 @@ int				ft_putnbr(int n);
 int				ft_putunsigned(unsigned int n);
 int				ft_putpoint(unsigned long long nbr, char *base);
 int				ft_puthexadecimal(unsigned int nbr, char *base);
+//GNL
+char			*get_next_line(int fd);
+char			*ft_strjoin_f(char *s1, char *s2);
+char			*ft_strdup_gnl(char *s);
+int				ft_strchr_gnl(const char *string, int searchedChar);
+void			*ft_calloc_gnl(size_t elementCount, size_t elementSize);
+size_t			ft_strlen_gnl(const char *theString);
+
 #endif
