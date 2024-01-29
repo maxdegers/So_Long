@@ -44,7 +44,9 @@ SOURCES = 	ft_isalpha.c\
 			ft_printf.c\
 			hexadecimal.c\
 			pointer.c\
-			ft_printf_utils.c
+			ft_printf_utils.c\
+			get_next_line_utils.c\
+			get_next_line.c
 
 OBJECTS = ${SOURCES:.c=.o}
 

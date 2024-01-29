@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 18:01:45 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/29 14:31:40 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:07:05 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	*read_file(int fd, char *line, char *buffer)
 	ssize_t	r;
 
 	r = 1;
-	while (r && ft_strchr(line, '\n') == 0)
+	while (r && ft_strchr_gnl(line, '\n') == 0)
 	{
 		r = read(fd, buffer, BUFFER_SIZE);
 		if (r == -1)
@@ -56,7 +56,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (buffer[0] = 0, NULL);
-	line = ft_strdup(buffer);
+	line = ft_strdup_gnl(buffer);
 	if (!line)
 		return (NULL);
 	line = read_file(fd, line, buffer);
