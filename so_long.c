@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:41 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/30 19:45:58 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:57:29 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main(int argc,char **argv)
 		i++;
 	}
 	//
+	ft_checker(tab);
 	ft_freetab(tab);
 	return (0);
 }
