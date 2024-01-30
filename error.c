@@ -6,7 +6,21 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:37 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/27 14:35:38 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:55:21 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
+
+void	ft_freetab(char **tab)
+{
+	int	i;
+	
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}

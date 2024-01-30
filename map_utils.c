@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:14:00 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/29 18:19:32 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:54:00 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ char	**ft_fill_tab(char *map)
 	i = 0;
 	size = ft_get_map_size(map);
 	fd = open(map, 0);
-	ft_printf("%d	\n",size);
 	tab = malloc(sizeof(char *) * (size));
 	while (1)
 	{

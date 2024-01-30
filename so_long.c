@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:41 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/29 18:15:37 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:45:58 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@ int main(int argc,char **argv)
 	if (argc != 2)
 		return (0);
 	tab = ft_fill_tab(argv[1]);
+	// to remouve
 	i = 0;
 	while (tab[i])
 	{
 		ft_printf("%s", tab[i]);
 		i++;
 	}
-	// ft_freetab(tab);
+	//
+	ft_freetab(tab);
 	return (0);
 }

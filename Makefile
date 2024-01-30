@@ -6,14 +6,15 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 14:32:21 by mbrousse          #+#    #+#              #
-#    Updated: 2024/01/29 14:10:58 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/01/30 19:56:20 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SOURCES	=	so_long.c\
 			so_long_utils.c\
 			error.c\
-			checker.c
+			checker.c\
+			map_utils.c
 
 OBJECTS	= 	${SOURCES:.c=.o}
 
