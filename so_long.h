@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:32:16 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/29 14:18:01 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:15:16 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,7 @@
 # include "libft/libft.h"
 # include "mlx_linux/mlx.h"
 # include "mlx_linux/mlx_int.h"
+
+char	**ft_fill_tab(char *map);
 
 #endif
