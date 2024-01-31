@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_utils.c                                        :+:      :+:    :+:   */
+/*   tab_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:14:00 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/30 19:54:00 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/01/31 17:33:44 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	**ft_fill_tab(char *map)
 	i = 0;
 	size = ft_get_map_size(map);
 	fd = open(map, 0);
-	tab = malloc(sizeof(char *) * (size));
+	tab = malloc(sizeof(char *) * (size + 1));
 	while (1)
 	{
 		tab[i] = get_next_line(fd);
