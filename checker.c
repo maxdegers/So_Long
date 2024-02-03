@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:35 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/03 14:17:18 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/03 14:44:23 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ static int	ft_compo(char **tab)
 {
 	int	x;
 	int	y;
+	int	num[3];
 	
 	y = 0;
+	num[0] = 0;
+	num[1] = 0;
+	num[2] = 0;
 	while (tab[y])
 	{
 		x = 0;
@@ -27,17 +31,20 @@ static int	ft_compo(char **tab)
 				&& (tab[y][x] != 'C') && (tab[y][x] != 'E') 
 				&& (tab[y][x] != '\n'))
 				return (1);
+			ft_compo_chec(num, tab[y][x]);
 			x++;
 		}
 		y++;
 	}
+	if (num[0] != 1 || num[1] < 1 || num[2] != 1)
+		return (1);
 	return (0);
 }
 
 static int	ft_valid(char **tab)
 {
 	
-	return (0);
+	return (ft_map_wal(tab));
 }
 
 static int	ft_map_isrec(char **tab)
