@@ -6,18 +6,18 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:35 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/04 19:17:10 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:37:59 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
+#include "so_long.h" 
+ 
 static int	ft_compo(char **tab)
 {
 	int	x;
 	int	y;
 	int	num[3];
-	
+
 	y = 0;
 	num[0] = 0;
 	num[1] = 0;
@@ -28,7 +28,7 @@ static int	ft_compo(char **tab)
 		while (tab[y][x])
 		{
 			if ((tab[y][x] != '0') && (tab[y][x] != '1') && (tab[y][x] != 'P')
-				&& (tab[y][x] != 'C') && (tab[y][x] != 'E') 
+				&& (tab[y][x] != 'C') && (tab[y][x] != 'E')
 				&& (tab[y][x] != '\n'))
 				return (1);
 			ft_compo_chec(num, tab[y][x]);
@@ -41,10 +41,14 @@ static int	ft_compo(char **tab)
 	return (0);
 }
 
-static int	ft_valid(char **tab)
+static int	ft_valid(char **map)
 {
-	
-	return (ft_map_wal(tab));
+	char	**tab;
+
+	tab = ft_clonemap(map);
+	if ((ft_map_valid()) != 0);
+		return (1);
+	return (ft_map_wal(map));
 }
 
 static int	ft_map_isrec(char **tab)

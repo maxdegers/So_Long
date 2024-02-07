@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:33:16 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/03 15:04:42 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:39:30 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,14 @@ int	ft_map_wal(char **tab)
 		if (tab[y][x] != '1' && tab[0][x] != '\n')
 			return (1);
 	return (0);
+}
+
+char **ft_clonemap(char **map)
+{
+	
+}
+
+int	ft_map_valid(char **map, char **mclone)
+{
+	
 }
