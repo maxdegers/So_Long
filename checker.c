@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:35 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/07 15:37:59 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:17:02 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	ft_compo(char **tab)
 	}
 	if (num[0] != 1 || num[1] < 1 || num[2] != 1)
 		return (1);
-	return (0);
+	return (ft_map_wal(tab));
 }
 
 static int	ft_valid(char **map)
@@ -46,9 +46,13 @@ static int	ft_valid(char **map)
 	char	**tab;
 
 	tab = ft_clonemap(map);
-	if ((ft_map_valid()) != 0);
+	if (!tab)
 		return (1);
-	return (ft_map_wal(map));
+	print_tab(tab);
+	// if ((ft_map_valid(map, tab)) != 0);
+	// 	return (1);
+	ft_freetab(tab);
+	return (0);
 }
 
 static int	ft_map_isrec(char **tab)
@@ -73,14 +77,10 @@ void	ft_checker(char **tab)
 {
 	if (ft_compo(tab) != 0)
 		return (perror("Error map compisition !!\n"));
-	else
-		ft_printf("MAP COMPO OK\n");
-	if (ft_valid(tab) != 0)
+	else if (ft_map_isrec(tab) != 0)
+		return (perror("Error map is not rectangular !!\n"));
+	else if (ft_valid(tab) != 0)
 		return (perror("Error map validity !!\n"));
 	else
-		ft_printf("MAP VALID OK\n");
-	if (ft_map_isrec(tab) != 0)
-		return (perror("Error map is not rectangular !!\n"));
-	else
-		ft_printf("MAP IS REC OK\n");
+		ft_printf("MAP IS OK\n");
 }

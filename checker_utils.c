@@ -6,12 +6,12 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:33:16 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/07 15:39:30 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:22:33 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
+ 
 void	ft_compo_chec(int *num, char c)
 {
 	if (c == 'P')
@@ -34,7 +34,7 @@ int	ft_map_wal(char **tab)
 	y = 0;
 	while (tab[y])
 	{
-		if (tab[y][0] != '1' || tab[y][ft_strlen(tab[y])- 2] != '1')
+		if (tab[y][0] != '1' || tab[y][ft_strlen(tab[y]) - 2] != '1')
 			return (1);
 		y++;
 	}
@@ -48,10 +48,32 @@ int	ft_map_wal(char **tab)
 
 char **ft_clonemap(char **map)
 {
-	
+	int		x;
+	int		y;
+	char	**tab;
+
+	y = -1;
+	while (map[++y]);
+	tab = malloc(sizeof(char *) * y + 1);
+	if (!tab)
+		return (NULL);
+	y = -1;
+	while (map[++y])
+	{
+		x = ft_strlen(map[y]);
+		tab[y] = malloc(sizeof(char) * (x + 1));
+		if (!tab[y])
+		return (NULL);
+		x = -1;
+		while (map[y][++x])
+			tab[y][x] = map[y][x];
+		tab[y][x] = 0;
+	}
+	tab[y] = NULL;
+	return (tab);
 }
 
-int	ft_map_valid(char **map, char **mclone)
-{
+// int	ft_map_valid(char **map, char **mclone)
+// {
 	
-}
+// }

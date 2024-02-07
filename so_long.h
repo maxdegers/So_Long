@@ -6,18 +6,18 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:32:16 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/07 15:39:45 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/07 17:15:05 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-// # include <fcntl.h>
-// # include <stdio.h>
 # include "libft/libft.h"
 # include "mlx_linux/mlx.h"
 # include "mlx_linux/mlx_int.h"
+//to remouve
+void	print_tab(char **tab);
 //map utils
 char	**ft_fill_tab(char *map);
 //error
