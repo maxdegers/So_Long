@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 14:32:21 by mbrousse          #+#    #+#              #
-#    Updated: 2024/02/03 14:40:44 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/02/13 15:31:45 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,16 @@ SOURCES	=	so_long.c\
 			tab_utils.c\
 			checker_utils.c
 
-OBJECTS	= 	${SOURCES:.c=.o}
+OBJ_D	= objs/
 
-HEADER			=	so_long.h
+SRC_D	= src/
+
+OBJECTS = ${SOURCES:%.c=${OBJ_D}%.o}
+
+HEADER 	=	includes/so_long.h
+
+H_D 	= 	.
+
 
 NAME			=	so_long
 
@@ -27,7 +34,9 @@ CC 				=	cc
 
 FLAGS 			=	-Wall -Wextra -Werror -g3
 
-all: ${NAME}
+all: 
+	@make --no-print-directory -C ./libft
+	@make --no-print-directory ${NAME}
 
 %.o:%.c  ${HEADER} libft/libft.h
 	${CC} ${FLAGS} -I/usr/include -Imlx_linux -O3 -c $< -o $@
