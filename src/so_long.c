@@ -6,11 +6,11 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:41 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/06 18:13:52 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:48:55 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	print_tab(char **tab)//to remouve
 {
@@ -27,16 +27,14 @@ void	print_tab(char **tab)//to remouve
 
 int main(int argc,char **argv)
 {
-	char	**tab;
+	t_slg	slg;
 	
 	if (argc != 2)
 		return (0);
-	tab = ft_fill_tab(argv[1]);
-	if (!tab)
-		return (1);
-	print_tab(tab);//
-	ft_checker(tab);
+	slg.map = ft_fill_tab(argv[1]);
+	print_tab(slg.map);//
+	ft_checker(&slg);
 	
-	ft_freetab(tab);
+	ft_freetab(slg.map);
 	return (0);
 }

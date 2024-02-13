@@ -6,11 +6,11 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:14:00 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/05 11:37:17 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:43:31 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 static size_t	ft_get_map_size(char *map)
 {
@@ -49,7 +49,7 @@ char	**ft_fill_tab(char *map)
 	fd = open(map, 0);
 	tab = malloc(sizeof(char *) * (size + 1));
 	if (!tab)
-		return (NULL);
+		ft_perror();
 	while (1)
 	{
 		tab[i] = get_next_line(fd);
@@ -59,6 +59,6 @@ char	**ft_fill_tab(char *map)
 	}
 	close(fd);
 	if (i != size)
-		return (NULL);
+		return(ft_freetab(tab), ft_perror(), NULL);
 	return (tab);
 }

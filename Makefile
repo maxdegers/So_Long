@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 14:32:21 by mbrousse          #+#    #+#              #
-#    Updated: 2024/02/13 15:31:45 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/02/13 16:12:53 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,25 +35,27 @@ CC 				=	cc
 FLAGS 			=	-Wall -Wextra -Werror -g3
 
 all: 
+	@make --no-print-directory -C mlx_linux
 	@make --no-print-directory -C ./libft
 	@make --no-print-directory ${NAME}
 
-%.o:%.c  ${HEADER} libft/libft.h
+${OBJ_D}:
+	@mkdir -p ${OBJ_D}
+	
+${OBJECTS} : ${OBJ_D}%.o: ${SRC_D}%.c  ${HEADER} libft/libft.h Makefile libft/Makefile
 	${CC} ${FLAGS} -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
-${NAME}: ${OBJECTS} Makefile
-	make -C ./libft
-	make -C mlx_linux
+${NAME}: ${OBJ_D} ${OBJECTS} Makefile libft/libft.a
 	$(CC) $(OBJECTS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME) -L./libft -lft
 
 clean:
-	make clean -C ./libft
-	make clean -C mlx_linux
-	rm -f ${OBJECTS}
+	@make --no-print-directory clean -C ./libft
+	@make --no-print-directory clean -C mlx_linux
+	@rm -rf ${OBJ_D} 
 
 fclean: clean
-	make fclean -C ./libft
-	rm -f ${NAME}
+	@make --no-print-directory fclean -C ./libft
+	@rm -f ${NAME}
 
 re: fclean all
 

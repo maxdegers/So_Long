@@ -6,20 +6,20 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:33:16 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/07 17:22:33 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:52:52 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
  
-void	ft_compo_chec(int *num, char c)
+void	ft_compo_chec(t_slg *slg, char c)
 {
 	if (c == 'P')
-		num[0]++;
+		slg->pcnt++;
 	if (c == 'C')
-		num[1]++;
+		slg->ccnt++;
 	if (c == 'E')
-		num[2]++;
+		slg->ecnt++;
 }
 
 int	ft_map_wal(char **tab)
@@ -54,7 +54,7 @@ char **ft_clonemap(char **map)
 
 	y = -1;
 	while (map[++y]);
-	tab = malloc(sizeof(char *) * y + 1);
+	tab = malloc(sizeof(char *) * (y + 1));
 	if (!tab)
 		return (NULL);
 	y = -1;

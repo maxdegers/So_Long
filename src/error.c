@@ -6,11 +6,11 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:37 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/01/31 14:00:21 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/13 16:32:21 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	ft_freetab(char **tab)
 {
@@ -25,4 +25,9 @@ void	ft_freetab(char **tab)
 		i++;
 	}
 	free(tab);
+}
+void	ft_perror()
+{
+	perror("Error\n");
+	exit(1);
 }
