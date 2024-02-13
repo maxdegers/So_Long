@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 14:32:21 by mbrousse          #+#    #+#              #
-#    Updated: 2024/02/13 16:12:53 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/02/13 18:51:02 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ NAME			=	so_long
 
 CC 				=	cc
 
-FLAGS 			=	-Wall -Wextra -Werror -g3
+FLAGS 			=	-Wall -Wextra -Werror -g3 #-fsanitize=address
 
 all: 
 	@make --no-print-directory -C mlx_linux

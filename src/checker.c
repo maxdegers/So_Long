@@ -6,11 +6,32 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:35 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/13 16:58:53 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/13 18:03:56 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+int	ft_chec_mapc(char **tab)
+{
+	size_t y;
+	size_t x;
+	
+	y = 0;
+	while (tab[y])
+	{
+		x = 0;
+		while (tab[y][x])
+		{
+			if ((tab[y][x] == '0') || (tab[y][x] == 'P')
+				|| (tab[y][x] == 'C') || (tab[y][x] == 'E'))
+				return (1);
+			x++;
+		}
+		y++;
+	}
+	return (0);
+}
  
 static int	ft_compo(t_slg *slg)
 {
@@ -46,8 +67,9 @@ static int	ft_valid(t_slg *slg)
 	tab = ft_clonemap(slg->map);
 	if (!tab)
 		return (1);
-	// if ((ft_map_valid(map, tab)) != 0);
-	// 	return (1);
+	print_tab(slg->map);//
+	if ((ft_map_valid(slg, tab)) != 0)
+		return (1);
 	ft_freetab(tab);
 	return (0);
 }
@@ -75,6 +97,20 @@ void	ft_checker(t_slg *slg)
 	slg->ccnt = 0;
 	slg->ecnt = 0;
 	slg->pcnt = 0;
+	slg->py = 0;
+	while (slg->map[slg->py] != NULL)
+	{
+		slg->px = 0;
+		while (slg->map[slg->py][slg->px] != 0)
+		{
+			if (slg->map[slg->py][slg->px] == 'P')
+				break;
+			slg->px += 1; 
+		}
+		if (slg->map[slg->py][slg->px] == 'P')
+				break;
+		slg->py += 1;
+	}
 	if (ft_compo(slg) != 0)
 		return (ft_putstr_fd("Error map compisition !!\n", 2));
 	else if (ft_map_isrec(slg->map) != 0)
