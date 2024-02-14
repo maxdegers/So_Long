@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:32:16 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/13 17:49:43 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:53:26 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ void	ft_compo_chec(t_slg *slg, char c);
 int		ft_map_wal(char **tab);
 char	**ft_clonemap(char **map);
 int     ft_map_valid(t_slg *slg, char **mclone);
-void	ft_val_rec(char **mclone, size_t *y, size_t *x);
+void	ft_val_rec(char **mclone, size_t y, size_t x);
 int     ft_chec_mapc(char **str);
 #endif
