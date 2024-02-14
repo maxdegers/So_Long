@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 14:32:21 by mbrousse          #+#    #+#              #
-#    Updated: 2024/02/13 18:51:02 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/02/14 20:58:47 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ SOURCES	=	so_long.c\
 			error.c\
 			checker.c\
 			tab_utils.c\
-			checker_utils.c
+			checker_utils.c\
+			mlx_utils.c 	
 
 OBJ_D	= objs/
 
@@ -32,7 +33,7 @@ NAME			=	so_long
 
 CC 				=	cc
 
-FLAGS 			=	-Wall -Wextra -Werror -g3 #-fsanitize=address
+FLAGS 			=	#-Wall -Wextra -Werror -g3
 
 all: 
 	@make --no-print-directory -C mlx_linux
