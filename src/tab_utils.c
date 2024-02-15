@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:14:00 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/13 16:43:31 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/15 20:41:26 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 static size_t	ft_get_map_size(char *map)
 {
 	int		fd;
-	char	*line;
+	char	line[1024];
 	size_t	size;
+	ssize_t sz;
 
 	fd = open(map, 0);
 	if (fd < 0)
@@ -25,13 +26,13 @@ static size_t	ft_get_map_size(char *map)
 		exit (1);
 	}
 	size = 0;
-	while (1)
+	sz = 1;
+	while (sz > 0)
 	{
-		line = get_next_line(fd);
-		if (!line)
-			break ;
-		free(line);
-		size++;
+		sz = read(fd, line, 1024);
+		if (sz == -1)
+			ft_perror();
+		size += sz;
 	}
 	close(fd);
 	return (size);
@@ -41,24 +42,25 @@ char	**ft_fill_tab(char *map)
 {
 	int		fd;
 	char	**tab;
+	char	*line;
 	size_t	size;
-	size_t	i;
+	int		i;
 
-	i = 0;
 	size = ft_get_map_size(map);
+	line = ft_calloc(size + 1, sizeof(char));
 	fd = open(map, 0);
-	tab = malloc(sizeof(char *) * (size + 1));
-	if (!tab)
-		ft_perror();
-	while (1)
-	{
-		tab[i] = get_next_line(fd);
-		if (!tab[i])
-			break ;
-		i++;
-	}
+	i = read(fd, line, size);
 	close(fd);
-	if (i != size)
-		return(ft_freetab(tab), ft_perror(), NULL);
-	return (tab);
+	if (i == -1)
+	{
+		free(line);
+		ft_perror();
+	}
+	tab = ft_split(line, '\n');
+	if (!tab)
+	{
+		ft_freetab(tab);
+		ft_perror();
+	}
+	return (free(line), tab);
 }
