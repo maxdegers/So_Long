@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:35 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/15 20:37:52 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/15 20:59:59 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ static int	ft_valid(t_map_i *slg)
 		return (ft_freetab(tab), 1);
 	return (ft_freetab(tab), 0);
 }
+
 
 static int	ft_map_isrec(char **tab, t_vars *slg)
 {
