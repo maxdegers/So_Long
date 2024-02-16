@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:35 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/16 18:06:35 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:24:33 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static int	ft_map_isrec(char **tab, t_vars *slg)
 	return (0);
 }
 
-void	ft_checker(t_map_i *map_i, t_vars *slg)
+int	ft_checker(t_map_i *map_i, t_vars *slg)
 {
 	map_i->ccnt = 0;
 	map_i->ecnt = 0;
@@ -111,11 +111,11 @@ void	ft_checker(t_map_i *map_i, t_vars *slg)
 		map_i->py += 1;
 	}
 	if (ft_compo(map_i) != 0)
-		return (ft_putstr_fd("Error map compisition  1!!\n", 2));
+		return (ft_putstr_fd("Error map compisition !!\n", 2), 1);
 	else if (ft_map_isrec(map_i->map, slg) != 0)
-		return (ft_putstr_fd("Error map is not rectangular 2!!\n", 2));
+		return (ft_putstr_fd("Error map is not rectangular !!\n", 2), 1);
 	else if (ft_valid(map_i) != 0)
-		return (ft_putstr_fd("Error map validity 3!!\n", 2));
+		return (ft_putstr_fd("Error map validity !!\n", 2), 1);
 	else
-		ft_printf("MAP IS OK\n");
+		return (ft_putstr_fd("MAP IS OK\n", 1), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:41 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/16 18:08:04 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:21:58 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int	main(int argc, char **argv)
 		return (1);
 	slg.map_i = &map_inf;
 	slg.map_i->map = ft_fill_tab(argv[1]);
-	ft_checker(slg.map_i, &slg);
+	if (ft_checker(slg.map_i, &slg) != 0)
+		return (1);
 	if (ft_mlx(&slg) != 0)
 		return (ft_freetab(slg.map_i->map), ft_perror(), 1);
 	return (ft_freetab(slg.map_i->map), 0);

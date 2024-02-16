@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:32:16 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/16 18:02:15 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:22:25 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_compo_chec(t_map_i *slg, char c);
 char	**ft_fill_tab(char *map);
 void	ft_freetab(char **tab);
 void	ft_perror(void);
-void	ft_checker(t_map_i *map_i, t_vars *slg);
+int		ft_checker(t_map_i *map_i, t_vars *slg);
 void	ft_compo_chec(t_map_i *slg, char c);
 int		ft_map_wal(char **tab);
 char	**ft_clonemap(char **map);
