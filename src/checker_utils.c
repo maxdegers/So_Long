@@ -6,21 +6,11 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:33:16 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/15 20:36:00 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:10:22 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
- 
-void	ft_compo_chec(t_map_i *slg, char c)
-{
-	if (c == 'P')
-		slg->pcnt++;
-	if (c == 'C')
-		slg->ccnt++;
-	if (c == 'E')
-		slg->ecnt++;
-}
 
 int	ft_map_wal(char **tab)
 {
@@ -46,14 +36,15 @@ int	ft_map_wal(char **tab)
 	return (0);
 }
 
-char **ft_clonemap(char **map)
+char	**ft_clonemap(char **map)
 {
 	int		x;
 	int		y;
 	char	**tab;
 
-	y = -1;
-	while (map[++y]);
+	y = 0;
+	while (map[y])
+		y++;
 	tab = malloc(sizeof(char *) * (y + 1));
 	if (!tab)
 		return (NULL);
@@ -63,7 +54,7 @@ char **ft_clonemap(char **map)
 		x = ft_strlen(map[y]);
 		tab[y] = malloc(sizeof(char) * (x + 1));
 		if (!tab[y])
-		return (NULL);
+			return (NULL);
 		x = -1;
 		while (map[y][++x])
 			tab[y][x] = map[y][x];
@@ -86,8 +77,8 @@ void	ft_val_rec(char **mclone, size_t y, size_t x)
 
 int	ft_map_valid(t_map_i *slg, char **mclone)
 {
-	size_t y;
-	size_t x;
+	size_t	y;
+	size_t	x;
 
 	y = 0;
 	x = 0;
@@ -97,13 +88,14 @@ int	ft_map_valid(t_map_i *slg, char **mclone)
 		while (slg->map[y][x] != 0)
 		{
 			if (slg->map[y][x] == 'E')
-				break;
-			x += 1; 
+				break ;
+			x += 1;
 		}
 		if (slg->map[y][x] == 'E')
-				break;
+			break ;
 		y += 1;
 	}
+	ft_set_exit(y, x, slg);
 	ft_val_rec(mclone, y, x);
 	if (mclone[slg->py][slg->px] != '2')
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:37 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/13 16:32:21 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:10:50 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_freetab(char **tab)
 {
 	int	i;
-	
+
 	if (tab == NULL)
 		return ;
 	i = 0;
@@ -26,7 +26,8 @@ void	ft_freetab(char **tab)
 	}
 	free(tab);
 }
-void	ft_perror()
+
+void	ft_perror(void)
 {
 	perror("Error\n");
 	exit(1);

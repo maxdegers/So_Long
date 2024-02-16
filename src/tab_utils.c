@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:14:00 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/15 20:41:26 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:05:33 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static size_t	ft_get_map_size(char *map)
 	int		fd;
 	char	line[1024];
 	size_t	size;
-	ssize_t sz;
+	ssize_t	sz;
 
 	fd = open(map, 0);
 	if (fd < 0)
@@ -38,6 +38,22 @@ static size_t	ft_get_map_size(char *map)
 	return (size);
 }
 
+void	ft_nl_chec(char *line)
+{
+	int	i;
+
+	i = -1;
+	while (line[++i])
+	{
+		if (line[i] == '\n' && line[i + 1] == '\n')
+		{
+			free(line);
+			ft_putstr_fd("Error : MAP COMPO !!\n", 2);
+			exit(1);
+		}
+	}
+}
+
 char	**ft_fill_tab(char *map)
 {
 	int		fd;
@@ -56,6 +72,7 @@ char	**ft_fill_tab(char *map)
 		free(line);
 		ft_perror();
 	}
+	ft_nl_chec(line);
 	tab = ft_split(line, '\n');
 	if (!tab)
 	{

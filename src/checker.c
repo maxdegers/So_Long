@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:35 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/15 20:59:59 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:06:35 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_chec_mapc(char **tab)
 {
-	size_t y;
-	size_t x;
-	
+	size_t	y;
+	size_t	x;
+
 	y = 0;
 	while (tab[y])
 	{
@@ -32,7 +32,7 @@ int	ft_chec_mapc(char **tab)
 	}
 	return (0);
 }
- 
+
 static int	ft_compo(t_map_i *slg)
 {
 	int		x;
@@ -48,7 +48,7 @@ static int	ft_compo(t_map_i *slg)
 		{
 			if ((tab[y][x] != '0') && (tab[y][x] != '1') && (tab[y][x] != 'P')
 				&& (tab[y][x] != 'C') && (tab[y][x] != 'E'))
-					return (1);
+				return (1);
 			ft_compo_chec(slg, tab[y][x]);
 			x++;
 		}
@@ -71,7 +71,6 @@ static int	ft_valid(t_map_i *slg)
 	return (ft_freetab(tab), 0);
 }
 
-
 static int	ft_map_isrec(char **tab, t_vars *slg)
 {
 	size_t	size_l;
@@ -87,6 +86,8 @@ static int	ft_map_isrec(char **tab, t_vars *slg)
 	}
 	slg->map_i->ch = size_c;
 	slg->map_i->cw = size_l;
+	slg->map_i->exit = -1;
+	slg->map_i->cmoves = 0;
 	return (0);
 }
 
@@ -102,11 +103,11 @@ void	ft_checker(t_map_i *map_i, t_vars *slg)
 		while (map_i->map[map_i->py][map_i->px] != 0)
 		{
 			if (map_i->map[map_i->py][map_i->px] == 'P')
-				break;
-			map_i->px += 1; 
+				break ;
+			map_i->px += 1;
 		}
 		if (map_i->map[map_i->py][map_i->px] == 'P')
-				break;
+			break ;
 		map_i->py += 1;
 	}
 	if (ft_compo(map_i) != 0)

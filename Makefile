@@ -6,7 +6,7 @@
 #    By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 14:32:21 by mbrousse          #+#    #+#              #
-#    Updated: 2024/02/15 14:01:46 by mbrousse         ###   ########.fr        #
+#    Updated: 2024/02/16 17:43:34 by mbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SOURCES	=	so_long.c\
 			checker.c\
 			tab_utils.c\
 			checker_utils.c\
-			mlx_utils.c 	
+			mlx_utils.c\
+			move.c
 
 OBJ_D	= objs/
 
@@ -27,7 +28,6 @@ OBJECTS = ${SOURCES:%.c=${OBJ_D}%.o}
 HEADER 	=	includes/so_long.h
 
 H_D 	= 	.
-
 
 NAME			=	so_long
 
