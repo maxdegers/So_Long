@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 14:33:16 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/16 18:10:22 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/18 21:14:00 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,6 @@ int	ft_map_valid(t_map_i *slg, char **mclone)
 	}
 	ft_set_exit(y, x, slg);
 	ft_val_rec(mclone, y, x);
-	if (mclone[slg->py][slg->px] != '2')
-		return (1);
 	if (ft_chec_mapc(mclone) == 1)
 		return (1);
 	return (0);

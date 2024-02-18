@@ -6,7 +6,7 @@
 /*   By: mbrousse <mbrousse@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 14:35:35 by mbrousse          #+#    #+#             */
-/*   Updated: 2024/02/16 18:24:33 by mbrousse         ###   ########.fr       */
+/*   Updated: 2024/02/18 21:20:05 by mbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_chec_mapc(char **tab)
 		x = 0;
 		while (tab[y][x])
 		{
-			if ((tab[y][x] == '0') || (tab[y][x] == 'P')
+			if ((tab[y][x] == 'P')
 				|| (tab[y][x] == 'C') || (tab[y][x] == 'E'))
 				return (1);
 			x++;
